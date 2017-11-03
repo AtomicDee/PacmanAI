@@ -131,3 +131,13 @@ class PartialAgent(Agent):
         # if none of the conditions are fulfilled, pacman makes a random move
         #print 'return random'
         return api.makeMove(random.choice(legal), legal)
+
+class GoWestAgent(Agent) :
+
+    def getAction(self, state) :
+        legal = api.legalActions(state)
+        
+        if Directions.WEST in legal :
+            return api.makeMove(Directions.WEST, legal)
+        else :
+            return api.makeMove(random.choice(legal), legal)
